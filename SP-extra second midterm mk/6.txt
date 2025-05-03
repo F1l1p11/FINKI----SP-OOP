@@ -1,0 +1,44 @@
+#include <iostream>
+#include <cstring>
+
+int par(int *a, int n) {
+    for (int i = 0; i < n; i++) {
+        int counter=0;
+        for (int j = 0; j < n; j++) {
+            if (a[i] == a[j]) {
+                counter++;
+            }
+        }
+        if (counter % 2 == 0) {
+            return a[i];
+        }
+    }
+    return 0;
+}
+
+using namespace std;
+int main () {
+    int n;
+    cin >> n;
+    int arr[n];
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (arr[j]>arr[i]) {
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    int k=par(arr, n);
+    if (k==0) {
+        cout<<"Nitu eden element ne se pojavuva paren broj pati!"<<endl;
+    }
+    else {
+        cout<<"Najmaliot element koj se pojavuva paren broj pati e "<<k<<endl;
+    }
+    return 0;
+}

@@ -1,0 +1,37 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+void par(int a[], int n) {
+    int poz[n],neg[n];
+    int temppoz=0, tempneg=0;
+    for (int i=0;i<n;i++) {
+        if (a[i]>=0) {
+            poz[temppoz++]=a[i];
+        }
+    }
+    for (int i=0;i<n;i++) {
+        if (a[i]<0) {
+            neg[tempneg++]=a[i];
+        }
+    }
+    for (int j = 0; j < temppoz; j++) {
+        a[j] = poz[j];
+    }
+    for (int j = 0; j < tempneg; j++) {
+        a[temppoz + j] = neg[j];
+    }
+}
+
+int main () {
+    int n;
+    cin >> n;
+    int arr[n];
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    par(arr,n);
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    return 0;
+}
