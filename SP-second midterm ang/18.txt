@@ -1,0 +1,27 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+int main (){
+    char ch[101];
+    char ch1[101];
+    float ratio=0;
+    while (cin.getline(ch, 100)) {
+        float dig=0, let=0,check=0;
+        int len = strlen(ch);
+        for (int i=0; i<len; i++) {
+            if (isdigit(ch[i])) {
+                dig++;
+            }
+            if (isalpha(ch[i])) {
+                let++;
+                check=1;
+            }
+        }
+        if (ratio<=(dig/let*1.0) && check==1) {
+            ratio=dig/let*1.0;
+            strcpy(ch1,ch);
+        }
+    }
+    cout<<ch1<<endl;
+    return 0;
+}

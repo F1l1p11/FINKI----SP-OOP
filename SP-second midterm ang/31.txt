@@ -1,0 +1,33 @@
+#include <iostream>
+#include <cstring>
+#include <iomanip>
+using namespace std;
+int main() {
+    int index=0,k=0;
+    float max=0;
+    char str[1000];
+    while (cin.getline(str, 1000)) {
+        int lower=0,upper=0;
+    char str1[1000];
+        strcpy(str1, str);
+        int len = strlen(str);
+        for (int i = 0; i < len; i++) {
+            if (isupper(str[i])) {
+                upper++;
+            }
+            if (islower(str[i])) {
+                lower++;
+            }
+        }
+        float ration;
+        ration = (upper*1.0)/(lower);
+        cout <<fixed<<setprecision(2)<<ration <<" "<<str<< endl;
+        if (ration>max) {
+            max=ration;
+            index=k;
+        }
+        k++;
+    }
+    cout<<index<<endl;
+    return 0;
+}

@@ -1,0 +1,30 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+void transform (char str[], int shift, int i=0) {
+    int length=strlen(str);
+    if (i<length) {
+        if (isupper(str[i]) && isalpha(str[i])) {
+            str[i]=((shift+str[i])>90)?static_cast<char>(str[i] - 26 + shift):static_cast<char>(str[i] + shift);
+        }
+        if (islower(str[i]) && isalpha(str[i])) {
+            str[i]=((shift+str[i])>122)?static_cast<char>(str[i] - 26 + shift):static_cast<char>(str[i] + shift);
+        }
+        return transform(str, shift, i+1);
+    }
+}
+
+int main () {
+    int n,m;
+    cin>>n>>m;
+    cin.ignore();
+    char str[81];
+    for(int i=0;i<n;i++) {
+        cin.getline(str,81);
+        int shift=m%26;
+        transform(str,shift);
+        cout<<str<<endl;
+    }
+    return 0;
+}

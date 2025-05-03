@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+int main () {
+     int n;
+    cin>>n;
+    int matrix[n][n];
+    for(int i=0;i<n;i++) {
+        for(int j=0;j<n;j++) {
+            cin>>matrix[i][j];
+        }
+    }
+    int max=matrix[0][n-1], min=matrix[n-1][0];
+    for (int i=0; i<n; i++) {
+        for (int j=0; j<n; j++) {
+            if (i<j && matrix[i][j]>max) {
+                max=matrix[i][j];
+            }
+            if (j<i && matrix[i][j]<min) {
+                min=matrix[i][j];
+            }
+        }
+    }
+    for (int i=0; i<n; i++) {
+        for (int j=0; j<n; j++) {
+            if (i<j) {
+                matrix[i][j]=max;
+            }
+            if (j<i) {
+                matrix[i][j]=min;
+            }
+        }
+    }
+    for (int i=0; i<n; i++) {
+        for (int j=0; j<n; j++) {
+            cout<<matrix[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+    return 0;
+}

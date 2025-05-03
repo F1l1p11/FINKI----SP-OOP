@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+int main () {
+    int m,n;
+    cin>>m>>n;
+    int arr[m][n];
+    for(int i=0;i<m;i++) {
+        for(int j=0;j<n;j++) {
+            cin>>arr[i][j];
+        }
+    }
+    int counter=0;
+    int counterGen=0;
+    for(int i=0;i<m;i++) {
+        counterGen=0;
+        for(int j=0;j<n;j++) {
+            if (arr[i][j]==1) {
+                counterGen++;
+            }
+            if (counterGen>2) {
+                counter++;
+                counterGen=0;
+                break;
+            }
+            if (arr[i][j]==0) {
+                counterGen=0;
+            }
+        }
+    }
+    counterGen=0;
+    for (int j=0; j<n; j++) {
+        counterGen=0;
+        for (int i=0; i<m; i++) {
+            if (arr[i][j]==1) {
+                counterGen++;
+            }
+            if (counterGen>2) {
+                counter++;
+                counterGen=0;
+                break;
+            }
+            if (arr[i][j]==0) {
+                counterGen=0;
+            }
+        }
+        }
+    cout<<counter;
+    return 0;
+}

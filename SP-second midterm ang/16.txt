@@ -1,0 +1,26 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+int main (){
+    char ch[21];
+    int check=1,total=0;
+    while (cin>>ch) {
+        check=1;
+        int len=strlen(ch);
+        for (int i=0; i<len; i++) {
+            if (!((ch[i]>='0' && ch[i]<='9') || (ch[i]>='a' && ch[i]<='f') || (ch[i]>='A' && ch[i]<='F'))) {
+                check=0;
+                break;
+            }
+        }
+        if (check==1) {
+            total++;
+            for (int i=0; i<len; i++) {
+                cout<<static_cast<char>(toupper(ch[i]));
+            }
+            cout<<endl;
+        }
+    }
+    cout << "Total: " << total << endl;
+    return 0;
+}

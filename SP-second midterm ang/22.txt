@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+void function (int n, int i=1, int j=1) {
+    if (i<=n) {
+        if (j<=i) {
+            cout<<j;
+            return function (n, i, j+1);
+        }
+        else {
+            cout<<endl;
+            return function(n,i+1,1);
+        }
+    }
+}
+
+int main () {
+    int n;
+    cin>>n;
+    function(n);
+    return 0;
+}

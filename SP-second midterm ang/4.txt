@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+int main () {
+    int a,b,c;
+    while (cin >> a >> b >> c) {
+        int countera=0, tempa=a, counterb=0, tempb=b;
+        while (tempa>0) {
+            if (((tempa/10)%10)==c) {
+                countera++;
+            }
+            tempa/=100;
+        }
+        while (tempb>0) {
+            if (((tempb/10)%10)==c) {
+                counterb++;
+            }
+            tempb/=100;
+        }
+        if (counterb>countera) {
+            cout<<b<<endl;
+        }
+        else {
+            cout<<a<<endl;
+        }
+    }
+    return 0;
+}

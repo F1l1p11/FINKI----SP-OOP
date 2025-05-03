@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+int transform (int a, int lsd) {
+if (a>0) {
+    if (a%10==lsd) {
+        return 1 + transform(a/10, lsd);
+    }
+    return transform(a/10, lsd);
+}
+        return 0;
+}
+
+int main () {
+    int n;
+    cin>>n;
+    int array[100];
+    for (int i=0; i<n; i++) {
+        cin>>array[i];
+        int lsd=array[i]%10;
+        cout<<transform(array[i], lsd)<<" ";
+    }
+    return 0;
+}
