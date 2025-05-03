@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+void parenBroj (int a, int b) {
+    int check2=0;
+    for (int i=a; i<=b; i++) {
+        int temp=i;
+        int counter=0, check=0;
+        while (temp>0) {
+            if ((temp%10)%2==0) {
+                check++;
+            }
+            temp/=10;
+            counter++;
+        }
+        if (counter==check) {
+            cout<<i<<endl;
+            check2=1;
+            break;
+        }
+    }
+    if (check2==0) {
+        cout<<"NE"<<endl;
+    }
+}
+
+int main () {
+
+    int a,b;
+    cin>>a>>b;
+    parenBroj(a,b);
+    return 0;
+}

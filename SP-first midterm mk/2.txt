@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+int reverseNumber (int number) {
+    int rev=0;
+    while (number >0) {
+        rev=rev*10+number%10;
+        number/=10;
+    }
+    return rev;
+}
+
+int numberOfDigits (int number) {
+    int counter=0;
+    while (number>0) {
+        counter++;
+        number/=10;
+    }
+    return counter;
+}
+
+int main () {
+    int number;
+    cin>>number;
+    if (number>9) {
+        for (int i=number-1; i>0; i--) {
+            if (reverseNumber(i)%numberOfDigits(i)==0) {
+                cout<<i<<endl;
+                break;
+            }
+        }
+    }
+    else {
+        cout<<"Brojot ne e validen"<<endl;
+    }
+    return 0;
+}
