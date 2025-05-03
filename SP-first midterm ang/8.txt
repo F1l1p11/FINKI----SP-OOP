@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+int lastDigit (int number) {
+    return number % 10;
+}
+
+int firstDigit (int number) {
+    int rev=0;
+    while (number > 0) {
+        rev = rev * 10 + (number % 10);
+        number = number / 10;
+    }
+    return rev%10;
+}
+
+int middleReversed (int number) {
+    int rev=0;
+    number/=10;
+    while (number > 0) {
+        rev = rev * 10 + (number % 10);
+        number = number / 10;
+    }
+    rev=rev/10;
+    return rev;
+}
+
+int sumOfFirstAndLastDigits (int number) {
+    return firstDigit (number)  + lastDigit (number);
+}
+
+int main () {
+    int a,b,counter=0;
+    cin>>a>>b;
+    for (int i=a; i<=b; i++) {
+        int sum=sumOfFirstAndLastDigits(i);
+        int reversed=middleReversed(i);
+        if (reversed%sum==0 && reversed>0) {
+            counter++;
+            cout<<i<<" -> ("<<reversed<<" == ("<<lastDigit(i)<<" + "<<firstDigit(i)<<") * "<<reversed/sum<<")"<<endl;
+        }
+    }
+    cout<<counter<<endl;
+    return 0;
+}

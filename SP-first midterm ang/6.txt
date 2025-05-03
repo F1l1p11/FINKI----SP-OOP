@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+int main() {
+int n;
+    cin>>n;
+if (n<=9) {
+    cout<<"The number is invalid"<<endl;
+    return 0;
+}
+
+        for (int i=n-1; i>0; i--) {
+            int k=i, m=0, l=0, digits=0;
+            while (k!=0) {
+                m=k%10;
+                l=l*10+m;
+                k=k/10;
+                digits++;
+            }
+            if (l%digits==0) {
+              cout<<i<<endl;
+                return 0;
+            }
+        }
+    cout << "No interesting number found" << endl;
+    return 0;
+}

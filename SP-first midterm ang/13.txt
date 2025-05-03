@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+int main() {
+int a,b;
+    cin>>a;
+    cin>>b;
+    for (int i=a; i<=b; i++) {
+        int c=i, check=0;
+        while (c!=0) {
+            int m=0;
+            m=c%10;
+            c=c/10;
+            if (m%2==0 || m==0) {
+                check=1;
+            }
+            else {
+                check=0;
+            }
+        }
+        if (check==1) {
+            cout<<i<<endl;
+            return 0;
+        }
+    }
+    cout<<"NSN"<<endl;
+    return 0;
+}

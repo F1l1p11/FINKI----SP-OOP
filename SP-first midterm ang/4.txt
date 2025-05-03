@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+float percentOfPoints (int points, int max) {
+return 1.0*points / max * 100.0;
+}
+
+int main () {
+    int points, maxpoints,n;
+    cin>>n;
+    for (int i=0; i<n; i++) {
+        cin>>points;
+        cin>>maxpoints;
+        float percent=percentOfPoints(points,maxpoints);
+        if (percent<50) {
+            cout<<percent<<" "<<"FAIL"<<endl;
+        }
+        if (percent>=50 && percent<60) {
+            cout<<percent<<" "<<"6"<<endl;
+        }
+        if (percent>=60 && percent<70) {
+            cout<<percent<<" "<<"7"<<endl;
+        }
+        if (percent>=70 && percent<80) {
+            cout<<percent<<" "<<"8"<<endl;
+        }
+        if (percent>=80 && percent<90) {
+            cout<<percent<<" "<<"9"<<endl;
+        }
+        if (percent>=90) {
+            cout<<percent<<" "<<"10"<<endl;
+        }
+    }
+    return 0;
+}

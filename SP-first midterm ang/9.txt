@@ -1,0 +1,54 @@
+#include <iostream>
+using namespace std;
+int main() {
+int a,b,c;
+    while (cin>>a>>b>>c) {
+        int min1, min2, max;
+        if (a<=b && a<=c) {
+            min1=a;
+            if (b<c) {
+                min2=b;
+                max=c;
+            }
+            else {
+                min2=c;
+                max=b;
+            }
+        }
+        if (b<=a && b<=c) {
+min1=b;
+            if (a<c) {
+                min2=a;
+                max=c;
+            }
+            else {
+                min2=c;
+                max=a;
+            }
+        }
+        if (c<=a && c<=b) {
+min1=c;
+            if (b<a) {
+                min2=b;
+                max=a;
+            }
+            else {
+                min2=a;
+                max=b;
+            }
+        }
+        int diff1=min2-min1;
+        int diff2=max-min2;
+        int diff3=max-min1;
+        if (diff1<diff2 && diff1<diff3) {
+            cout<<min1<<" "<<min2<<endl;
+        }
+       else if (diff2<diff3 && diff2<diff1) {
+            cout<<min2<<" "<<max<<endl;
+        }
+        else {
+            cout<<min1<<" "<<min2<<" "<<max<<endl;
+        }
+    }
+    return 0;
+}

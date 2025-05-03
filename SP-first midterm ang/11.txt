@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+int main() {
+int a,b,c;
+    cin>>a;
+    cin>>b;
+    cin>>c;
+    if (a+b+c==180) {
+        cout<<"YES"<<endl;
+        if (a==90 || b==90 || c==90) {
+            cout<<"RIGHT"<<endl;
+        }
+        else if (a>90 || b>90 || c>90) {
+            cout<<"OBTUSE"<<endl;
+        }
+        else {
+            cout<<"ACUTE"<<endl;
+        }
+        }
+else
+    cout<<"NO"<<endl;
+    return 0;
+}

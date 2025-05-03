@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+
+int main () {
+    int todayDate, n;
+    cin >> todayDate >> n;
+
+    int day = (todayDate / 1000000) % 100;
+    int month = (todayDate / 10000) % 100;
+    int year = todayDate % 10000;
+
+    for (int i = 0; i < n; i++) {
+        int birthDate;
+        cin >> birthDate;
+
+        int birthDay = (birthDate / 1000000) % 100;
+        int birthMonth = (birthDate / 10000) % 100;
+        int birthYear = birthDate % 10000;
+
+        int age = year - birthYear;
+
+        if (month < birthMonth || (month == birthMonth && day < birthDay)) {
+            age--;  
+        }
+
+        if (age >= 18) {
+            cout << "YES" << endl;
+        } else {
+            cout << "NO" << endl;
+        }
+    }
+
+    return 0;
+}

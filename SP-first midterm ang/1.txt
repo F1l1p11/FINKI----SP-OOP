@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+int main() {
+    char ch;
+    int  sum=0, g=0;
+    while (cin.get(ch) && ch != '!')
+    {
+       if (isdigit (ch) ) {
+            g=g*10+(ch-'0');
+       }
+       else {
+            sum=sum+g;
+            g=0;
+       }
+    }
+    sum=sum+g;
+    cout<<sum<<endl;
+    return 0;
+}
