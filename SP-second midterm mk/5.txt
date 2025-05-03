@@ -1,0 +1,23 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+int main () {
+    float money=0;
+    cin>>money;
+    char ch[10],ch1[10];
+    float br,br1=0,ko,ko1=0;
+    float max=0;
+    float sum=1;
+    while (cin>>ch>>br>>ko && ch[0]!='#') {
+        if (ko>max) {
+            max=ko;
+            br1=br;
+            ko1=ko;
+            strcpy(ch1,ch);
+        }
+        sum=sum*ko;
+    }
+    cout<<ch1<<" "<<br1<<" "<<ko1<<endl;
+    cout<<money*sum<<endl;
+    return 0;
+}

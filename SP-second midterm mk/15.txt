@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+int poramnuvanje (int n) {
+    if (n==0) {
+        return 0;
+    }
+    if (n%10==9) {
+        return 7+poramnuvanje(n/10)*10;
+    }
+    else {
+        return n%10+poramnuvanje(n/10)*10;
+    }
+}
+
+int main () {
+    int n;
+    int arr[100];
+    int i=0;
+    while (cin >> n) {
+        arr[i]=poramnuvanje(n);
+        i++;
+    }
+    for (int u=0; u<i; u++) {
+        for (int j=u; j<i; j++) {
+            if (arr[j]<arr[u]) {
+                int temp=arr[j];
+                arr[j]=arr[u];
+                arr[u]=temp;
+            }
+        }
+    }
+    if (i>5) {
+        for (int u=0; u<5; u++) {
+            cout<<arr[u]<<" ";
+        }
+    }
+    else
+    {
+         for (int u=0; u<i; u++) {
+        cout<<arr[u]<<" ";
+    }   
+    }
+    return 0;
+}

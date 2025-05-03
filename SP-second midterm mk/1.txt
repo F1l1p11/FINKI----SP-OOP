@@ -1,0 +1,22 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+int main() {
+    char ch[100];
+    int counter=0;
+    while (cin.getline(ch, 100) && ch[0]!='#') {
+        int len = strlen(ch);
+        char a,b;
+        for (int i=0; i<len-1; i++) {
+            a=tolower(ch[i]);
+            b=tolower(ch[i+1]);
+            if ((a=='a' || a=='e' || a=='i' || a=='o' || a=='u') &&
+                (b=='a' || b=='e' || b=='i' || b=='o' || b=='u')) {
+                cout<<a<<""<<b<<endl;
+                counter++;
+            }
+        }
+    }
+    cout<<counter<<endl;
+    return 0;
+}

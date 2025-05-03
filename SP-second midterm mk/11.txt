@@ -1,0 +1,34 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+int main () {
+    char ch[100];
+    while (cin.getline (ch, 100) && ch[0]!='#') {
+        int len = strlen(ch);
+        int array[len];
+        int counter=0;
+        int temp=0;
+        for (int i = 0; i < len; i++) {
+            if (isdigit(ch[i])) {
+                counter++;
+                array[temp] = ch[i] - '0';
+                temp++;
+            }
+        }
+        for (int i=0; i<temp; i++) {
+            for (int j=i; j<temp; j++) {
+                if (array[i] > array[j]) {
+                    int tempp = array[i];
+                    array[i] = array[j];
+                    array[j] = tempp;
+                }
+            }
+        }
+        cout<<counter<<":";
+        for (int i=0; i<temp; i++) {
+            cout<<array[i];
+        }
+        cout<<endl;
+    }
+    return 0;
+}

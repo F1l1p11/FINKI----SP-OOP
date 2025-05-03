@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+int main () {
+    int m,n;
+    cin>>m>>n;
+    int arr[m][n];
+    for(int i=0;i<m;i++) {
+        for(int j=0;j<n;j++) {
+            cin>>arr[i][j];
+        }
+    }
+    if (n%2==0) {
+        for (int i=0; i<m; i++) {
+            int sum1=0, sum2=0, diff=0;
+            for (int j=0, k=n-1; j<n/2; j++, k--) {
+                sum1=sum1+arr[i][j];
+                sum2=sum2+arr[i][k];
+            }
+            diff=abs(sum1-sum2);
+            arr[i][n/2]=diff;
+            arr[i][n/2-1]=diff;
+        }
+    }
+    else {
+        for (int i=0; i<m; i++) {
+            int sum1=0, sum2=0, diff=0;
+            for (int j=0, k=n-1; j<=n/2; j++, k--) {
+                sum1=sum1+arr[i][j];
+                sum2=sum2+arr[i][k];
+            }
+            diff=abs(sum1-sum2);
+            arr[i][n/2]=diff;
+        }
+    }
+    for (int i=0; i<m; i++) {
+        for (int j=0; j<n; j++) {
+            cout<<arr[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+    return 0;
+}

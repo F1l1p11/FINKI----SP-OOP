@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+int main () {
+    int n;
+    cin>>n;
+    int m=2*n;
+    int arr[n][m];
+    for(int i=0;i<n;i++) {
+        for(int j=0;j<m;j++) {
+            cin>>arr[i][j];
+        }
+    }
+    int arr1[m][n];
+    for (int i=0;i<n;i++) {
+        for (int j=0;j<n;j++) {
+            arr1[i][j]=arr[i][j];
+        }
+    }
+    for (int i=0,k=n;i<n;i++,k++) {
+        for (int j=n, l=0;j<m;j++, l++) {
+            arr1[k][l]=arr[i][j];
+        }
+    }
+    for (int i=0; i<m; i++) {
+        for (int j=0; j<n; j++) {
+            cout<<arr1[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+    return 0;
+}
