@@ -1,0 +1,52 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+bool isVowel (char ch) {
+    ch=tolower(ch);
+    if (ch=='a' || ch=='e' || ch=='i' || ch=='o' || ch=='u') {
+        return true;
+    }
+    return false;
+}
+
+int function (char *ch) {
+    int count = 0;
+    int n=strlen(ch);
+    for (int i=0;i<n-1;i++) {
+        if (isVowel(ch[i]) && isVowel(ch[i+1])) {
+            count++;
+            while (i<n-1 && isVowel(ch[i])) {
+                i++;
+            }
+        }
+    }
+    return count;
+}
+
+int main () {
+    int n;
+    int arr[100];
+    cin>>n;
+    cin.ignore();
+    char str[100];
+    for (int i=0; i<n; i++) {
+        cin.getline(str,100);
+        arr[i]=function(str);
+    }
+    int max=0;
+    for (int i=0; i<n; i++) {
+        if (arr[i]>max) {
+            max=arr[i];
+        }
+    }
+    for (int i=0; i<=max; i++) {
+        int count=0;
+        for (int j=0; j<n;j++) {
+            if (arr[j]==i) {
+                count++;
+            }
+        }
+        cout<<i<<": "<<count<<endl;
+    }
+    return 0;
+}

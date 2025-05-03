@@ -1,0 +1,27 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+int function (char *str, int n, int i, int ch) {
+    if (i==n) {
+        return -1;
+    }
+    if (isupper(str[i])) {
+        return i;
+    }
+    return function(str, n, i+1, ch);
+}
+
+int main() {
+    char str[101];
+    cin.getline(str, 101);
+    int n = strlen(str);
+    int k=function(str,n,0, 0);
+    if (k!=-1) {
+        cout<<str[k]<<endl;
+    }
+    else {
+        cout<<"Nema"<<endl;
+    }
+    return 0;
+}

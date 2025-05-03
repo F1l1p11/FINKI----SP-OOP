@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+void function (int n, int temp, bool check) {
+    cout<<n<<" ";
+    if (n==temp && check) {
+        return;
+    }
+    if (!check && n>0) {
+       return function (n-3, temp, false);
+    }
+    else {
+       return function (n+3, temp, true);
+    }
+}
+
+int main() {
+    int n;
+    cin>>n;
+    function(n, n, false);
+    return 0;
+}
