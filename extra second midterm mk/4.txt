@@ -1,0 +1,35 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+int main () {
+    int m,n;
+    cin>>m>>n;
+    int arr[m][n];
+    int x,y;
+    cin>>x>>y;
+    for(int i=0;i<m;i++) {
+        for(int j=0;j<n;j++) {
+            cin>>arr[i][j];
+        }
+    }
+    int min=arr[0][0];
+    for (int i=0; i<m; i++) {
+        for (int j=0; j<n; j++) {
+            if (arr[i][j]<min) {
+                min=arr[i][j];
+            }
+        }
+    }
+    for (int i=0; i<x; i++) {
+        for (int j=0; j<y; j++) {
+            arr[i][j]=min;
+        }
+    }
+    for (int i=0; i<m; i++) {
+        for (int j=0; j<n; j++) {
+            cout<<arr[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+    return 0;
+}
