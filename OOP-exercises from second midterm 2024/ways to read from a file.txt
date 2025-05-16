@@ -16,7 +16,7 @@ void WTF () {
     fout << "Fourth line to make sure the test case works" << endl;
 }
 
-void RFF (string fname) {
+void RFF (const string &fname) {
     string something ;
 
     ifstream fin (fname);
@@ -31,6 +31,8 @@ void RFF (string fname) {
         cout << something << endl;
 
     }
+
+    cout << "-----------------------" << endl;
 }
 
 int main() {
@@ -67,7 +69,7 @@ int main() {
     }
 
     if (n == 4) {
-        //reading from a file line by line, and the reading each line character by character
+        //reading from a file line by line, and then reading each line character by character
         string line;
         while (getline (fin, line)) {
             cout << line << endl;
