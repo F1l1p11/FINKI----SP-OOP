@@ -115,9 +115,7 @@ public:
 void findDoctorsPercentage(Doctor **doctors, int n) {
     //42.8571% of the doctors are specialists and 57.1429% are general doctors.
     int specialist = 0, general = 0;
-    int valid = 0;
     for (int i = 0; i < n; i++) {
-        if (doctors[i] != nullptr) {
             GeneralDoctor *temp = dynamic_cast<GeneralDoctor *>(doctors[i]);
             Specialist *temp2 = dynamic_cast<Specialist *>(doctors[i]);
             if (temp) {
@@ -125,11 +123,9 @@ void findDoctorsPercentage(Doctor **doctors, int n) {
             } else if (temp2) {
                 specialist++;
             }
-            valid++;
-        }
     }
-    float percentSpecialist = specialist * 1.0 / valid * 100;
-    float percentGeneral = general * 1.0 / valid * 100;
+    float percentSpecialist = specialist * 1.0 / n * 100;
+    float percentGeneral = general * 1.0 / n * 100;
     cout << percentSpecialist << "% of the doctors are specialists and " << percentGeneral << "% are general doctors."
             << endl;
 }
@@ -215,7 +211,8 @@ int main() {
                     doctors[i] = new GeneralDoctor(name, surname, code, numberOfPatients);
                 } catch (InvalidCodeFormatException &e) {
                     e.print();
-                    doctors[i] = nullptr;
+                    i--;
+                    n--;
                 }
             } else // Specialist
             {
@@ -226,15 +223,14 @@ int main() {
                                                 yearsOfExperience);
                 } catch (InvalidCodeFormatException &e) {
                     e.print();
-                    doctors[i] = nullptr;
+                    i--;
+                    n--;
                 }
             }
         }
         cout << "LIST OF ALL DOCTORS: " << endl;
         for (int i = 0; i < n; i++) {
-            if (doctors[i] != nullptr) {
                 doctors[i]->print();
-            }
         }
         findDoctorsPercentage(doctors, n);
         for (int i = 0; i < n; i++) {
