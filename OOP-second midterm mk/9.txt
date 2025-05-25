@@ -121,6 +121,25 @@ private:
     static int jType;
 
 public:
+    // PhDStudent(const char *name = "", int index = 0, int yearOfEnrolment = 0, const int *array = nullptr, int n = 0,
+    //        const Trud *arrayT = nullptr, int number = 0) : Student(name, index, yearOfEnrolment, array, n) {
+    //     this->number = number;
+    //     this->arrayT = new Trud [number];
+    //     for (int i = 0; i < number; i++) {
+    //         if (arrayT) {
+    //             try {
+    //                 if (arrayT[i].getYear() < getYearOfEnrolment()) {
+    //                     throw Exception();
+    //                 }
+    //                 this->arrayT[i] = arrayT[i];
+    //             } catch (Exception &e) {
+    //                 e.print();
+    //             }
+    //         } else {
+    //             this->arrayT[i] = Trud();
+    //         }
+    //     }
+    // }
     PhDStudent(const char *name = "", int index = 0, int yearOfEnrolment = 0, const int *array = nullptr, int n = 0,
                const Trud *arrayT = nullptr, int number = 0) : Student(name, index, yearOfEnrolment, array, n) {
         this->number = number;
@@ -128,10 +147,7 @@ public:
         for (int i = 0; i < number; i++) {
             if (arrayT) {
                 try {
-                    if (arrayT[i].getYear() < getYearOfEnrolment()) {
-                        throw Exception();
-                    }
-                    this->arrayT[i] = arrayT[i];
+                    *this+=arrayT[i];
                 } catch (Exception &e) {
                     e.print();
                 }
