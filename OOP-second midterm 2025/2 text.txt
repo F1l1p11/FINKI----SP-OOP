@@ -1,4 +1,3 @@
-vtora zad
 Da se napise virtuelna klasa User, vo koja se cuvaat name string promenliva, email string promenliva, password string promenliva, 
 i slednite cisto vitruelni metodi:
 print 
